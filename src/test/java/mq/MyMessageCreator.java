@@ -1,4 +1,4 @@
-package msm.mq;
+package mq;
 
 import javax.jms.JMSException;
 import javax.jms.Message;
