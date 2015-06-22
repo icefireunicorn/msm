@@ -1,5 +1,6 @@
 package mq;
 
+import javax.jms.DeliveryMode;
 import javax.jms.Destination;  
 
 import org.springframework.context.ApplicationContext;  
@@ -16,13 +17,14 @@ public class MessageSender extends Thread {
         ApplicationContext context = new ClassPathXmlApplicationContext(configLocations);  
         JmsTemplate jmsTemplate = (JmsTemplate) context.getBean("jmsTemplate");  
         Destination destination = (Destination) context.getBean("destination");  
-        for (int i = 1; i < 100; i++) {  
+        for (int i = 1; i < 20; i++) {  
             System.out.println("发送 i=" + i);  
             //消息产生者  
             MyMessageCreator myMessageCreator = new MyMessageCreator();  
             myMessageCreator.n = i;  
-            jmsTemplate.send(destination, myMessageCreator);  
-            sleep(10000);//10秒后发送下一条消息  
+            jmsTemplate.send(destination, myMessageCreator); 
+            jmsTemplate.setDeliveryMode(DeliveryMode.PERSISTENT);
+            sleep(100);//10秒后发送下一条消息  
         }  
     }  
 }  

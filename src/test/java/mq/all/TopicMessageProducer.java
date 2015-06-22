@@ -12,7 +12,7 @@ public class TopicMessageProducer {
 	private Destination notifyTopic;
 	private NotifyMessageConverter messageConverter;
 
-	public void sendQueue(PhoneNoticeInfo noticeInfo) {
+	public void sendTopic(PhoneNoticeInfo noticeInfo) {
 		sendMessage(noticeInfo);
 	}
 
@@ -20,6 +20,7 @@ public class TopicMessageProducer {
 		// TODO Auto-generated method stub
 		jmsTemplate.setMessageConverter(messageConverter);
 		jmsTemplate.setPubSubDomain(false);
+		jmsTemplate.setDeliveryPersistent(true);
 		jmsTemplate.convertAndSend(notifyTopic, noticeInfo);
 	}
 

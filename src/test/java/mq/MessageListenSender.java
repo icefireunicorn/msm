@@ -19,24 +19,24 @@ public class MessageListenSender {
 		Destination destination2 = (Destination) context
 				.getBean("destination2");
 //		jmsTemplate.convertAndSend(destination, "My first Message");
-		jmsTemplate.send(destination, new MessageCreator() {
-			public ObjectMessage createMessage(Session session)
-					throws JMSException {
-				ObjectMessage message = session.createObjectMessage();
-				message.setObject("My first Message");
-				return message;
-			}
-		});
-		System.out.println("MESSAGE SENT TO myMessageQueue");
-		jmsTemplate.convertAndSend(destination2, "My second Message");
-//		send(destination2, new MessageCreator() {
+//		jmsTemplate.send(destination, new MessageCreator() {
 //			public ObjectMessage createMessage(Session session)
 //					throws JMSException {
 //				ObjectMessage message = session.createObjectMessage();
-//				message.setObject("My second Message");
+//				message.setObject("My first Message");
 //				return message;
 //			}
 //		});
+//		System.out.println("MESSAGE SENT TO myMessageQueue");
+//		jmsTemplate.convertAndSend(destination2, "My second Message");
+		jmsTemplate.send(destination2, new MessageCreator() {
+			public ObjectMessage createMessage(Session session)
+					throws JMSException {
+				ObjectMessage message = session.createObjectMessage();
+				message.setObject("My second Message");
+				return message;
+			}
+		});
 
 
 		System.out.println("MESSAGE SENT TO myMessageTopic");

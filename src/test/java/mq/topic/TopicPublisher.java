@@ -18,14 +18,15 @@ public class TopicPublisher {
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);  
         Topic topic = session.createTopic("myTopic.messages");  
         MessageProducer producer = session.createProducer(topic);  
-        producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);  
+//        producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);  
+        producer.setDeliveryMode(DeliveryMode.PERSISTENT); 
         for(int i =0;i<10;i++){  
             TextMessage message = session.createTextMessage();  
             message.setText("message_" + System.currentTimeMillis());  
             producer.send(message);  
             System.out.println("Sent message: " + message.getText());  
             try {  
-                Thread.sleep(1000);  
+                Thread.sleep(100);  
             } catch (InterruptedException e) {  
                 e.printStackTrace();  
             }  

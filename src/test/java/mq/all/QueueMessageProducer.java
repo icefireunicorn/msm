@@ -20,6 +20,7 @@ public class QueueMessageProducer {
 		// TODO Auto-generated method stub
 		jmsTemplate.setMessageConverter(messageConverter);
 		jmsTemplate.setPubSubDomain(false);
+//		jmsTemplate.setDeliveryPersistent(true);
 		jmsTemplate.convertAndSend(notifyQueue, noticeInfo);
 	}
 

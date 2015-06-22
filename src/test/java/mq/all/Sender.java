@@ -22,12 +22,12 @@ public class Sender {
 		noticeInfo.setNoticeTitle("hello Word");
 		noticeInfo.setReceiver("hello");
 		noticeInfo.setReceiverPhone("1111111");
-		notifyMessageProducer.sendQueue(noticeInfo);
+//		notifyMessageProducer.sendQueue(noticeInfo);
 		
 		
 		TopicMessageProducer topicNotifyMessageProducer = ((TopicMessageProducer) context
 				.getBean("topicMessageProducer"));
-		topicNotifyMessageProducer.sendQueue(noticeInfo);
+		topicNotifyMessageProducer.sendTopic(noticeInfo);
 	}
 
 }
