@@ -8,6 +8,7 @@ public class User {
 	private int id;
 	private int state;
 	private String nickname;
+	private String name;
 
 	public int getId() {
 		return id;
@@ -31,5 +32,13 @@ public class User {
 
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

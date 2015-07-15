@@ -9,4 +9,8 @@ public interface UserDAO {
      * @return
      */
     public int insertUser(User user);
+    
+    User getUser(final int id);
+    
+    void saveUser(final User user);
 }
