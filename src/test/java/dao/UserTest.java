@@ -24,6 +24,6 @@ public class UserTest {
         User user = new User();
         user.setNickname("你好");
         user.setState(2);
-        System.out.println(userService.insertUser(user));
+//        System.out.println(userService.insertUser(user));
     }
 }
