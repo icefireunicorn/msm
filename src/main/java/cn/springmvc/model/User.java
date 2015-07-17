@@ -1,10 +1,16 @@
 package cn.springmvc.model;
 
+import java.io.Serializable;
+
 /**
  * 用户表
  */
-public class User {
+public class User implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5427066391164091412L;
 	private int id;
 	private int state;
 	private String nickname;

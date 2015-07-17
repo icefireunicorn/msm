@@ -14,7 +14,7 @@
      
     <!-- 扫描controller（controller层注入） -->
    <context:component-scan base-package="cn.springmvc.controller"/>
-    <mvc:annotation-driven />
+   <mvc:annotation-driven />
    <!-- 避免IE在ajax请求时，返回json出现下载 -->
    <bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">     
         <property name="supportedMediaTypes">
